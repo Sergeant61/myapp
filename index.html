@@ -1,0 +1,16 @@
+<html>
+  <head> </head>
+  <body>
+    Merhaba Bu bir Api'dir.
+
+    <button>Update</button>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+      var button = document.querySelector("button");
+      button.onclick = function() {
+        socket.emit("update", { dolarRate: 5.12 });
+      };
+    </script>
+  </body>
+</html>
