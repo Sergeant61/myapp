@@ -4,6 +4,7 @@
     Merhaba Bu bir Api'dir.
 
     <button>Update</button>
+    <p></p>
     <script src="/socket.io/socket.io.js"></script>
     <script>
       var socket = io();
@@ -11,6 +12,10 @@
       button.onclick = function() {
         socket.emit("update", { dolarRate: 5.12 });
       };
+      var p = document.querySelector("p");
+      socket.on("update", function(res) {
+        p.innerText = res.data;
+      });
     </script>
   </body>
 </html>

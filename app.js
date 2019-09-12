@@ -7,12 +7,8 @@ app.get("/", function(req, res) {
   res.sendFile(__dirname + "/index.html");
 });
 
-app.post("/topla", function(req, res) {
-  res.send({ some: "json" });
-});
-
 io.on("connection", function(socket) {
   socket.on("update", data => io.emit("update", { data }));
+  //socket.on("update", data => io.emit(data.get_user_id, { data }));
 });
 server.listen(3000);
- 
